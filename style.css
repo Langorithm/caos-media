@@ -1,0 +1,368 @@
+@font-face {
+  font-family: 'BD Karlo';
+  src: url('assets/fonts/BD-Karlo-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #010000;
+  --amber: #E0D761;
+  --teal: #79C7C5;
+  --cyan: #ADE1E5;
+  --paper: #f4f1ea;
+  --white: #f6f4ee;
+  --mute: rgba(246, 244, 238, 0.56);
+  --line: rgba(224, 215, 97, 0.18);
+  --line-strong: rgba(224, 215, 97, 0.38);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+html {
+  background: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 40px 48px;
+}
+
+::selection { background: var(--amber); color: var(--ink); }
+
+a { color: inherit; }
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* -------- Nav -------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.mark {
+  font-family: 'BD Karlo', 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: flex-start;
+}
+.mark .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+.nav > nav {
+  display: flex;
+  gap: 32px;
+}
+.nav > nav a {
+  color: var(--white);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+.nav > nav a:hover { border-bottom-color: var(--amber); color: var(--amber); }
+
+/* -------- Shared -------- */
+.eyebrow {
+  color: var(--amber);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 40px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.mark-glyph {
+  font-family: 'BD Karlo', serif;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--amber);
+}
+
+/* -------- Hero -------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: end;
+  padding: 120px 0 128px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-lead .eyebrow { margin-bottom: 56px; }
+.hero h1 {
+  font-family: 'BD Karlo', serif;
+  font-weight: 400;
+  font-size: clamp(72px, 12vw, 176px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  color: var(--amber);
+  margin: 0;
+}
+.hero .lede {
+  max-width: 46ch;
+  margin: 40px 0 0;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.55;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 44px;
+  padding: 15px 26px 14px;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  border: 1px solid var(--amber);
+  transition: background-color 120ms linear, color 120ms linear;
+}
+.cta:hover { background: var(--ink); color: var(--amber); }
+
+/* Feed panel — signature */
+.feed {
+  border: 1px solid var(--line-strong);
+  padding: 20px 22px 22px;
+  background: rgba(255, 255, 255, 0.015);
+}
+.feed-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed var(--line);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+.feed-label { color: var(--mute); }
+.feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--teal);
+}
+.pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 3px rgba(121, 199, 197, 0.18);
+  display: inline-block;
+}
+.feed ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.feed li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.feed .t {
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.02em;
+}
+.feed b { font-weight: 500; color: var(--white); }
+
+/* -------- Sections -------- */
+.section {
+  padding: 112px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Services */
+.services .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px;
+}
+.services article { border-top: 1px solid var(--line-strong); padding-top: 28px; }
+.services h3 {
+  font-family: 'BD Karlo', serif;
+  font-weight: 400;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--amber);
+  margin: 0 0 20px;
+}
+.services p {
+  color: var(--white);
+  opacity: 0.82;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 34ch;
+}
+
+/* Approach */
+.approach h2 {
+  font-family: 'BD Karlo', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 6.4vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  margin: 0;
+  max-width: 22ch;
+}
+.mark-cyan {
+  color: var(--cyan);
+  background-image: linear-gradient(transparent 82%, var(--cyan) 82%, var(--cyan) 92%, transparent 92%);
+}
+.approach .lede {
+  max-width: 58ch;
+  margin: 56px 0 0;
+  color: var(--mute);
+  font-size: 17px;
+}
+
+/* Clients */
+.client-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+}
+.client-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.c-name {
+  font-family: 'BD Karlo', serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  display: inline-flex;
+  align-items: flex-start;
+}
+.dot-inline {
+  width: 7px;
+  height: 7px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 4px;
+}
+.c-meta {
+  font-size: 11px;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Contact */
+.contact { padding-bottom: 128px; }
+.huge-email {
+  display: inline-block;
+  font-family: 'BD Karlo', serif;
+  font-weight: 400;
+  font-size: clamp(52px, 9vw, 136px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 6px;
+}
+.huge-email:hover { border-bottom-color: var(--amber); }
+.contact-meta {
+  margin: 36px 0 0;
+  font-size: 11px;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0 0;
+  font-size: 11px;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+footer .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 3px;
+  transform: translateY(-4px);
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 960px) {
+  body { padding: 20px 22px 40px; }
+  .hero { grid-template-columns: 1fr; gap: 56px; padding: 72px 0 88px; align-items: start; }
+  .hero-lead .eyebrow { margin-bottom: 36px; }
+  .services .cards { grid-template-columns: 1fr; gap: 40px; }
+  .section { padding: 80px 0; }
+  .nav > nav { gap: 20px; }
+  .nav > nav a { font-size: 11px; letter-spacing: 0.16em; }
+  .client-list li { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+@media (max-width: 560px) {
+  .nav > nav { display: none; }
+  .hero { padding: 56px 0 72px; }
+  .contact { padding-bottom: 88px; }
+  footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
